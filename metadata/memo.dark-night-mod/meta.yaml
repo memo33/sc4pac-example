@@ -1,0 +1,20 @@
+package:
+  name: memo.dark-night-mod
+  version: "0.2.0"
+
+about:
+  summary: "For testing: a dummy dark night mod"
+
+requirements:
+  run:
+    # pins the dummy package to version 1.* (dark night only)
+    # which forces all model packages to install their dark night versions
+    - memo.dark-night-dummy 1.*
+
+build:
+  number: 2
+  noarch: generic
+  script_env:
+    - SC4PAC_FILESLIST=files.txt
+    - SC4PAC_SUBFOLDER=180-mods
+  script: bash "$RECIPE_DIR/move-files.sh"

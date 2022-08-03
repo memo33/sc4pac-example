@@ -1,0 +1,18 @@
+package:
+  name: memo.apartment-block
+  version: "0.1.4"
+
+about:
+  summary: "For testing: the lot released with the model"
+
+requirements:
+  run:
+    - memo.apartment-block-model-only
+
+build:
+  number: 2
+  noarch: generic
+  script_env:
+    - SC4PAC_FILESLIST=files.txt
+    - SC4PAC_SUBFOLDER=200-residential/270-high-density
+  script: bash "$RECIPE_DIR/move-files.sh"

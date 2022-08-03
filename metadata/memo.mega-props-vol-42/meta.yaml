@@ -1,0 +1,14 @@
+package:
+  name: memo.mega-props-vol-42
+  version: "0.1.1"
+
+about:
+  summary: 'For testing: an empty mega prop pack'
+
+build:
+  number: 4
+  noarch: generic
+  script_env:
+    - SC4PAC_FILESLIST=files.txt
+    - SC4PAC_SUBFOLDER=100-textures-props/150-props
+  script: bash "$RECIPE_DIR/move-files.sh"

@@ -1,0 +1,10 @@
+package:
+  name: memo.dark-night-dummy
+  version: "1.0.0"  # dark night enabled
+
+about:
+  summary: 'For testing: a dummy package marking whether a dark night mod is installed (version 1 = enabled)'
+
+build:
+  number: 2
+  noarch: generic
