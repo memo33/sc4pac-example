@@ -1,4 +1,4 @@
-A package manager for SC4
+A Package Manager for SC4
 =========================
 
 This is a small demonstration of how a package manager can be used to manage custom content for SimCity 4.
@@ -7,20 +7,24 @@ A **package manager** is responsible for:
 
 - figuring out dependencies for packages you want to install,
 - installing the packages into the right places in your plugins folder,
-- uninstalling any files that are not needed anymore.
+- keeping your files up-to-date and uninstalling any files that are not needed anymore.
 
-We use an existing package manager, **Conda**, which is cross-platform and comes with a graphical user interface.
+We use an existing package manager, [Conda](https://en.wikipedia.org/wiki/Conda_(package_manager)),
+which is cross-platform and comes with a graphical user interface.
 
-This repository consists of a set of "recipes" that contain metadata about some custom content.
-The [metadata](metadata) defines how to convert a zip file of a SC4 plugin into a Conda package.
+This repository consists of a set of "recipes" that contain [metadata](metadata) about some custom content.
+The metadata defines how to convert a zip file of a SC4 plugin into a Conda package.
 The Conda packages can then be installed into your plugins folder in an automated way using the package manager.
 
-While this demonstration is functional already, for this to be useful,
+While this demo is functional already, for this to be useful,
 we need a place to host these Conda packages and/or custom content for which redistribution in this form is permitted.
 
 
 Getting Started
 ---------------
+
+This tutorial guides you through the installation process of the package manager
+and shows how to install the first demo packages.
 
 #### 1. Install Miniconda (Follow these steps: [Windows](https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html)/[macOS](https://docs.conda.io/projects/conda/en/latest/user-guide/install/macos.html)/[Linux](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)).
 
@@ -51,9 +55,12 @@ but those are not empty and come with several irrelevant packages preinstalled b
 
 #### 4. Launch the graphical user interface `anaconda-navigator` via the start menu or terminal.
 
-#### 5. On the left, choose the `Environments` tab and select our environment `my-sc4-plugins`.
+#### 5. Choose the `Environments` tab on the left and select our environment `my-sc4-plugins`.
 
-#### 6. Click `Channels` and add a new channel `https://memo33.github.io/sc4pac-example/conda/`. Remove the `defaults` channel. Then `Update channels`.
+#### 6. Add a new channel.
+
+Click `Channels` and add a new channel with the URL https://memo33.github.io/sc4pac-example/conda/.
+Remove the `defaults` channel. Then `Update channels`.
 
 #### 7. In the drop-down menu, choose `All`.
 
@@ -87,6 +94,9 @@ where you find an organized folder structure:
       |- download-links.txt
       |- memo/memo-apartmentblock-relotted.SC4Lot
 ```
+This ensures a correct loading order.
+(You could then datpack this folder to your actual plugins folder
+or link to this folder using a hardlink or the `-UserDir:path` launch option.)
 
 #### 9. Install `memo.dark-night-mod`.
 
@@ -105,6 +115,10 @@ The standard-night model in our plugins folder is replaced by a dark-night model
    |  +- memo/memo-apartmentblock-darknight.SC4Model     <-- this is the replacement model
    ...
 ```
+
+This is a *huge* benefit of using a package manager, since all of this happens automatically.
+The same can be done for mods that come with a CAM and a no-CAM variant.
+Or a US/EU variant. Or a RHD/LHD variant.
 
 #### 10. Click `memo.apartment-block-relot` > `Mark for removal` and hit `Apply` to uninstall.
 
