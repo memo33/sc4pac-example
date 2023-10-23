@@ -1,3 +1,6 @@
+**Note:** Superseded by a new implementation: https://github.com/memo33/sc4pac-tools
+
+
 A Package Manager for SC4
 =========================
 
